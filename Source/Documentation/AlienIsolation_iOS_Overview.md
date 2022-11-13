@@ -4,7 +4,7 @@
 
 When the iOS port of the game was released, complete debugging information and symbols were left in the game's binary.
 
-Thankfully, due to the way GCC compiles code (also probably the GCC flags used to compile the port), we have complete insight into the original folder structure and source files that CA used for the game and its engine, known as CATHODE.
+Thankfully, due to the way GCC compiles code (also probably the GCC flags used to compile the port), we have complete insight into the original folder structure and source files that CA used for the game, its engine, and scripting system, known as CATHODE.
 
 ## Want to have a look around?
 
