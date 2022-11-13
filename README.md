@@ -9,3 +9,6 @@ Goals:
 - [ ] Get the game code compiling successfully.
 - [ ] Get the game running successfully on Windows.
 - [ ] Publish all the headers and generate documentation.
+
+## Want to read some more background information on this project?
+[Overview](Source/Documentation/AlienIsolation_iOS_Overview.md)
