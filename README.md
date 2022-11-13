@@ -12,3 +12,6 @@ Goals:
 
 ## Want to read some more background information on this project?
 [Overview](Source/Documentation/AlienIsolation_iOS_Overview.md)
+
+## Further information
+[Guidelines for reverse-engineers](Source/Documentation/AlienIsolation_General_ReversingGuidelines.md)
