@@ -10,6 +10,9 @@ Goals:
 - [ ] Get the game running successfully on Windows.
 - [ ] Publish all the headers and generate documentation.
 
+## Project status
+At the moment, all active development is happening in [_Common_](Source/game/common), as this is one of the core libraries used throughout the game.
+
 ## Want to read some more background information on this project?
 [Overview](Source/Documentation/AlienIsolation_iOS_Overview.md)
 
