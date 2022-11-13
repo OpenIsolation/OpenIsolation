@@ -1,0 +1,109 @@
+#pragma once
+
+void debug_services_register_first_autorun_checkpoint(CATHODE::EntityHandle);
+void debug_services_register_current_checkpoint(CATHODE::EntityHandle);
+void buffer_printf(char*&, char const*, ...);
+void push_entity_guid_context();
+void add_entity_guid_context(CATHODE::MemoryPtr<CATHODE::Entity> const&);
+void pop_entity_guid_context();
+void debug_services_is_active_render_solid();
+void debug_services_is_active_render_deferred_lighting();
+void debug_services_is_active_render_light_decal();
+void debug_services_is_active_render_radiosity();
+void debug_services_is_active_render_character_morphs();
+void debug_services_is_active_render_distortion();
+void debug_services_is_active_render_low_res_alpha();
+void debug_services_is_active_render_alpha();
+void debug_services_is_active_render_particle_cell_systems();
+void debug_services_is_active_render_decals();
+void debug_services_is_active_render_lens_flares();
+void debug_services_is_active_render_ui();
+void debug_services_is_active_alpha_light();
+void debug_services_is_active_enable_selection_overlay();
+void debug_services_is_active_radiosity_use_static_lights();
+void debug_services_is_active_radiosity_use_legacy_light_list();
+void debug_services_is_active_radiosity_door_transfer();
+void debug_services_is_active_radiosity_use_dynamic_lights();
+void debug_services_is_active_radiosity_use_surface_lights();
+void debug_services_is_active_fxaa();
+void debug_services_is_active_smaa();
+void debug_services_is_active_smaa_temporal();
+void debug_services_is_active_radiosity_cubemap();
+void debug_services_is_active_effect_overlay();
+void debug_services_is_active_disable_smooth_alpha();
+void debug_services_is_active_render_constant_ambient();
+void debug_services_is_active_render_disable_light_shafts();
+void debug_services_is_active_render_disable_light_shafts_occlusion();
+void debug_services_is_active_force_lens_flare_quads();
+void debug_services_is_active_radiosity_cubemap_ps();
+void debug_services_is_active_radiosity_no_spot_bvh_culling();
+void debug_services_is_active_radiosity_show_irradiance();
+void debug_services_is_active_radiosity_no_frustum_prioritization();
+void debug_services_is_active_radiosity_unlimited_detail();
+void debug_services_is_active_depth_only_sort();
+void debug_services_is_active_lightingfilter_disable_shadowmaps();
+void debug_services_multithread_particle_update();
+void debug_services_set_gpu_pfx_pos();
+void debug_services_gpu_pfx_fragment();
+void debug_services_spawn_debug_sparks();
+void debug_services_disable_mgpu_support();
+void debug_services_disable_mgpu_motion_compensation();
+void debug_services_is_all_alpha_visible();
+void debug_services_non_visible_pfx_in_vert_buffer();
+void debug_services_all_alpha_to_hi();
+void debug_services_all_alpha_to_lo();
+void debug_services_hide_early_alpha();
+void debug_services_hide_alpha_pre_hi();
+void debug_services_hide_alpha_lo();
+void debug_services_hide_alpha_post_hi();
+void debug_services_disable_force_to_hi_alpha_move();
+void debug_services_is_active_render_postprocess_stereo_mag_green();
+void debug_services_is_active_render_postprocess_linear();
+void debug_services_is_active_render_postprocess_srgb();
+void debug_services_is_active_render_postprocess_gamma20();
+void debug_services_is_active_render_postprocess_gamma22();
+void debug_services_is_active_render_atmosphere();
+void debug_services_is_disabled_bilateral_low_res_alpha();
+void debug_services_is_active_disable_lods();
+void debug_services_is_active_disable_specific_shadow_culling_using_query();
+void debug_services_is_active_disable_frustum_filtering();
+void debug_services_is_active_disable_shadow_quality();
+void debug_services_is_active_disable_shadow_cache();
+void debug_services_is_active_disable_culling_alpha_light();
+void debug_services_is_active_disable_camera_fit_alpha_light();
+void debug_services_is_active_disable_custom_env_map();
+void debug_services_is_active_disable_alphalight_ambient_average_factor();
+void debug_services_is_inactive_render_software_z_buffer();
+void debug_services_is_inactive_use_software_z_buffer();
+void debug_services_is_active_single_ray_tracing();
+void debug_services_is_active_disable_radiosity_streaming();
+void debug_services_is_active_disable_wrinkles();
+void debug_services_is_active_blur_histogram();
+void debug_services_is_active_render_hair_softening();
+void debug_services_is_active_render_skin_scattering();
+void debug_services_is_active_disable_radiosity_cubemap_on_gun();
+void debug_services_is_active_disable_radiosity_direct_lighting_cs();
+void debug_services_is_active_disable_object_probe_caching();
+void debug_services_is_active_reload_shaders();
+void debug_services_is_active_light_meter_show_overlay();
+void debug_services_is_active_disable_hdr_scaling();
+void debug_services_get_player_throw_speed();
+void debug_services_get_player_friendly_fire_dmg_modifier();
+void debug_services_get_android_melee_damage_range();
+void debug_services_get_android_melee_context_timeout();
+void debug_services_get_android_grapple_delay();
+void debug_services_get_markup_tolerance_radius();
+void debug_services_get_light_meter_overlay_opacity();
+
+/*
+_player_throw_speed
+_player_friendly_fire_dmg_modifier
+_android_melee_damage_range
+_android_melee_context_timeout
+_android_grapple_delay_before_dot
+_markup_tolerance_radius
+_light_meter_overlay_opacity
+__MergedGlobals
+_g_display_no_radiosity_warning
+_g_ShowFrameRateEnabled
+*/
