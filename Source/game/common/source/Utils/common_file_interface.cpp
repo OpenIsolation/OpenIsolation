@@ -38,7 +38,17 @@ void* PACK_FILE_IN::open(const char* fileName) {
 }
 
 void PACK_FILE_IN::read(void* file, unsigned int line) {
+    PackFileIn* lPackFileIn = this->packFileIn;
+    std::uint8_t position = this->position;
 
+    if (position < 0) {
+        if (packFileIn != nullptr) {
+            position = this->fileSize + position;
+            this->position = position;
+
+            CA::FileIn::seek64()
+        }
+    }
 }
 
 void PACK_FILE_IN::readln(char* lineData) {
@@ -58,7 +68,13 @@ int PACK_FILE_IN::size() {
 }
 
 void PACK_FILE_IN::close() {
+    PackFileIn* lPackFileIn = this->packFileIn;
 
+    if (lPackFileIn != nullptr) {
+        lPackFileIn->numEntries = lPackFileIn->numEntries - 1;
+    }
+
+    this->packFileIn = nullptr;
 }
 
 void* PackFileIn::open(const char* fileName) {

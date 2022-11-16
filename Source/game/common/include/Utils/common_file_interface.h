@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <cstdint>
+
 class FILE_IN_INTERFACE {
 public:
     virtual ~FILE_IN_INTERFACE() = default;
@@ -14,7 +16,8 @@ public:
     virtual int size() = 0;
     virtual void close() = 0;
 protected:
-    int fileSize;
+    std::uint8_t position;
+    std::uint8_t fileSize;
 };
 
 class PackMemFileIn {
@@ -39,6 +42,8 @@ class PackFileIn {
 public:
     void* open(char const* fileName);
     void readln(char* lineData);
+    std::uint8_t numEntries;
+    PackFileEntry* packFileEntry;
 };
 
 class PACK_FILE_IN : public FILE_IN_INTERFACE {

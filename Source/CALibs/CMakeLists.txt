@@ -3,5 +3,6 @@ project(AlienIsolation)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_subdirectory(Source/game/common)
-add_subdirectory(Source/CALibs)
+include_directories(inc)
+
+add_library(CALibs STATIC src/CAPackFile.cpp src/CASHA.cpp)
