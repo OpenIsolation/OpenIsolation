@@ -6,13 +6,7 @@ When the iOS port of the game was released, complete debugging information and s
 
 Thankfully, due to the way GCC compiles code (also probably the GCC flags used to compile the port), we have complete insight into the original folder structure and source files that CA used for the game, its engine, and scripting system, known as CATHODE.
 
-## Want to have a look around?
-
-In this folder, you'll find a sub-folder for each system (library) in the game. 
-
-Each .md file will contain a breakdown of the symbols and global variables (if applicable), that were contained in that source file.
-
-### Game Code Folder Structure
+### Engine Code Folder Structure
 ```txt
 AlienIsolation/Source/engine/source/
 AlienIsolation/Source/engine/source/Damage/
@@ -28,7 +22,10 @@ AlienIsolation/Source/engine/source/PerformanceSuite/
 AlienIsolation/Source/engine/source/ScreenCapture/
 AlienIsolation/Source/engine/source/Settings/
 AlienIsolation/Source/engine/source/Stereo/
+```
 
+### Game Code Folder Structure
+```txt
 AlienIsolation/Source/game/pch/
 
 AlienIsolation/Source/game/source/Actions/
@@ -53,7 +50,10 @@ AlienIsolation/Source/game/source/Pathfinding/Detour/
 AlienIsolation/Source/game/source/Pathfinding/Query/
 AlienIsolation/Source/game/source/Physics/
 AlienIsolation/Source/game/source/unity_files/
+```
 
+### Common Code Folder Structure
+```txt
 AlienIsolation/Source/game/common/source/
 AlienIsolation/Source/game/common/source/animation/
 AlienIsolation/Source/game/common/source/animation/Metadata/
@@ -61,13 +61,22 @@ AlienIsolation/Source/game/common/source/Characters/
 AlienIsolation/Source/game/common/source/cover/
 AlienIsolation/Source/game/common/source/memory/
 AlienIsolation/Source/game/common/source/Utils/
+```
 
+### Network Code Folder Structure
+```txt
 AlienIsolation/Source/game/network/source/unity_files/
+```
 
+### Graphics Code Folder Structure
+```txt
 AlienIsolation/Source/graphics/code/graphics/
 AlienIsolation/Source/graphics/code/graphics/gpu/
 AlienIsolation/Source/graphics/code/graphics/util/
+```
 
+### Messaging Code Folder Structure
+```txt
 AlienIsolation/Source/Messaging/
 ```
 
