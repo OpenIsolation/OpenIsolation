@@ -5,6 +5,7 @@
 #pragma once
 
 #include <cstdint>
+#include <CAPackFile.h>
 
 class FILE_IN_INTERFACE {
 public:
@@ -43,7 +44,7 @@ public:
     void* open(char const* fileName);
     void readln(char* lineData);
     std::uint8_t numEntries;
-    PackFileEntry* packFileEntry;
+    CA::PackFileEntry* packFileEntry;
 };
 
 class PACK_FILE_IN : public FILE_IN_INTERFACE {

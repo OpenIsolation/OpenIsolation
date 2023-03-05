@@ -33,6 +33,10 @@
 
 # CMake files
 cmake-*
+out
 
 # IntelliJ files
 .idea
+
+# VS files
+.vs

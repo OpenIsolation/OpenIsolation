@@ -46,7 +46,7 @@ void PACK_FILE_IN::read(void* file, unsigned int line) {
             position = this->fileSize + position;
             this->position = position;
 
-            CA::FileIn::seek64()
+            CA::FileIn::seek64(position);
         }
     }
 }
