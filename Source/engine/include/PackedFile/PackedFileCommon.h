@@ -4,6 +4,18 @@
 
 #include <cstdint>
 
+/// <summary>
+/// Class Inheritance Summary
+/// 
+/// FILE_PACKER
+///   NOTIFICATION_HANDLER
+///   FILE_INTERFACE_COMMON
+///     FILE_INTERFACE_READABLE
+///     FILE_INTERFACE_STREAMABLE
+///   PACKED_FILE_COMMON
+///     PACKED_FILE_READABLE
+/// </summary>
+
 namespace FILE_PACKER {
   class NOTIFICATION_HANDLER {
   public:
