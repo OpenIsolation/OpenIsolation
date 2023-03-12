@@ -11,13 +11,13 @@ namespace CATHODE {
   class CommandBuffer {
   public:
     /// <returns>Total number of commands inside the buffer.</returns>
-    const std::uint32_t num_commands();
+    std::uint32_t num_commands() const;
     /// <summary>
     /// Returns a command by its index in the buffer file.
     /// </summary>
     /// <param name="index">The index of the desired command.</param>
     /// <returns>Presumably, the command's ShortGuid.</returns>
-    const std::uint32_t get_command(std::uint32_t index);
+    std::uint32_t get_command(std::uint32_t index) const;
     /// <summary>
     /// Initialise a new buffer for storing and reading the contents of a COMMANDS.BIN buffer file.
     /// </summary>
