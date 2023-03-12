@@ -4,7 +4,7 @@
 
 #include <radiosity_runtime.h>
 
-class RADIOSITY_RUNTIME_PC : RADIOSITY_RUNTIME {
+class RADIOSITY_RUNTIME_PC : public RADIOSITY_RUNTIME {
   void create();
   void destroy();
   void render_direct();
