@@ -22,6 +22,8 @@ compiled using Visual Studio.
 
 **[C]** Visual Studio 2010 (build 30319) - 247 objects
 
+> Wwise 2013.1 and 2013.2 were compiled with VS2008 SP1.
+
 **[C++]** Visual Studio 2008 SP1 (build 30729) - 294 objects
 
 **[C]** Visual Studio 2008 SP1 (build 30729) - 107 objects
