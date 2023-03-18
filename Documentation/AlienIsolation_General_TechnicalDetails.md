@@ -56,7 +56,14 @@ compiled using Visual Studio.
 ## Known middleware
 ---
 ### Audio
-Wwise Unknown Version (PC/Mac/Linux)
+Wwise 2013.1.?/2013.2.? (PC/Mac/Linux)
+> Discovered by opening one of the PC Wwise BNK (Bank) files in a hex editor.
+> 
+> The second 32-bit value, is the bank version number, this typically gets changed with every major release of Wwise (2013.1 -> 2013.2, etc).
+> 
+> In Alien: Isolation's Steam PC release, the bank version is **0x58** (or **88**).
+> 
+> According to [this list](https://github.com/bnnm/wwiser/blob/5a2fb98bbd81448b704444482683986ca50a0aba/wwiser/parser/wdefs.py#L22) compiled by the wwiser team, bank version 88 is version 2013.1 or 2013.2 of Wwise.
 
 Wwise 2019.1.4 (iOS/Android)
 
