@@ -66,6 +66,8 @@ Wwise 2013.1.?/2013.2.? (PC/Mac/Linux)
 > In Alien: Isolation's Steam PC release, the bank version is **0x58** (or **88**).
 > 
 > According to [this list](https://github.com/bnnm/wwiser/blob/5a2fb98bbd81448b704444482683986ca50a0aba/wwiser/parser/wdefs.py#L22) compiled by the wwiser team, bank version 88 is version 2013.1 or 2013.2 of Wwise.
+>
+> From my own tests with Wwise 2013.2, 2013.2 will produce sound banks with the bank version set to **0x58** (**88**), so 2013.2 will work just fine.
 
 Wwise 2019.1.4 (iOS/Android)
 
