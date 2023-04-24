@@ -39,14 +39,15 @@ void* PACK_FILE_IN::open(const char* fileName) {
 
 void PACK_FILE_IN::read(void* file, unsigned int line) {
     PackFileIn* lPackFileIn = this->packFileIn;
-    std::uint8_t position = this->position;
+    std::uint8_t lPosition = this->position;
 
-    if (position < 0) {
+    if (lPosition < 0) {
         if (packFileIn != nullptr) {
-            position = this->fileSize + position;
-            this->position = position;
+            lPosition = this->fileSize + position;
+            this->position = lPosition;
 
-            CA::FileIn::seek64(position);
+            //CA::FileIn::seek64(lPosition);
+			throw "CA::FileIn::seek64 not implemented!";
         }
     }
 }
