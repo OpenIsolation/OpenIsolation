@@ -13,6 +13,12 @@ Goals:
 ## Project status
 At the moment, all active development is happening in [_Common_](Source/game/common), as this is one of the core libraries used throughout the game.
 
+Some work is underway, to re-create CA's library of SFX and music for the game, using original file names and folder structures, recovered from the
+Windows Store port of the game.
+
+## Want to listen to some music and SFX from the game?
+[Audio Library](https://www.dropbox.com/sh/99jwuuhtxhsiq7t/AAAhX0zONVwFiWgimfBDotXMa?dl=0)
+
 ## Want to read some more background information on this project?
 [Overview](Documentation/AlienIsolation_iOS_Overview.md)
 
