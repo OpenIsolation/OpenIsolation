@@ -13,9 +13,7 @@ namespace CA {
     class StringGuid {
     public:
         explicit StringGuid(char const* string);
-        /// Not sure if these are actually two separate 8 byte arrays or one 16 byte array.
-        unsigned long hashArray {};
-        unsigned long alternativeHashArray {};
+		unsigned long hashArray[2];
     };
 
     /// Cuckoo hash table implementation.

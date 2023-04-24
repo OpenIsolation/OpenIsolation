@@ -32,11 +32,31 @@
 *.app
 
 # CMake files
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
 cmake-*
 out
+*.dir
+Debug
+X64
 
 # IntelliJ files
 .idea
 
 # VS files
 .vs
+*.vcxproj*
+*.sdf
+*.sln
+*.suo
+*.aps
+ipch

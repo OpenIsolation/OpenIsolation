@@ -41,8 +41,8 @@ namespace CA {
         size_t stringLength = strlen(string);
 
         SHA1_Hash_Portable(string, stringLength, hashResult);
-        this->hashArray = reinterpret_cast<unsigned long>(hashResult);
-        this->alternativeHashArray = reinterpret_cast<unsigned long>(hashResult + sizeof(long));
+        this->hashArray[0] = reinterpret_cast<unsigned long>(hashResult);
+        this->hashArray[1] = reinterpret_cast<unsigned long>(hashResult + sizeof(long));
     }
 
     void PackFileTOC::setup(const char *, unsigned short) {
