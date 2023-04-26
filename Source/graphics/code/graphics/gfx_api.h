@@ -25,6 +25,11 @@ struct GfxBufferDescr {
 };
 static_assert(sizeof GfxBufferDescr == 24, "Invalid size!");
 
+struct GfxQueryDescr {
+  GfxEnum<eGfxQueryType> queryType;
+};
+static_assert(sizeof GfxQueryDescr == 1, "Invalid size!");
+
 enum eGfxUsage {
   USAGE_UNKNOWN,
 };
@@ -39,4 +44,19 @@ enum eGfxBufferLockMode {
 
 enum eGfxGPUIndexBufferFormat {
   INDEX_BUFFER_FORMAT_UNKNOWN,
+};
+
+enum eGfxQueryType {
+  QUERY_TYPE_UNKNOWN,
+  QUERY_TYPE_OCCLUSION,
+  QUERY_TYPE_TIMESTAMP_DISJOINT = 3,
+};
+
+enum eGfxShaderType {
+  SHADER_TYPE_COMPUTE,
+  SHADER_TYPE_PIXEL,
+  SHADER_TYPE_VERTEX,
+  SHADER_TYPE_GEOMETRY,
+  SHADER_TYPE_HULL,
+  SHADER_TYPE_DOMAIN,
 };
