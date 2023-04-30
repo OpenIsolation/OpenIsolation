@@ -14,3 +14,5 @@ enum eReflectionMapQuality {
   // [PC Default] Renders a high-res gaussian blur on the reflection mip-maps.
   REFLECTION_MAP_QUALITY_HIGH_RES,
 };
+
+

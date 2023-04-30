@@ -17,33 +17,20 @@ struct GfxEnum {
   T value;
 };
 
-struct GfxBufferDescr {
-  std::uint32_t unk0;
-  std::int32_t unk1;
-  std::uint32_t memoryPoolType;
-  std::uint64_t size;
-};
-static_assert(sizeof GfxBufferDescr == 24, "Invalid size!");
-
-struct GfxQueryDescr {
-  GfxEnum<eGfxQueryType> queryType;
-};
-static_assert(sizeof GfxQueryDescr == 1, "Invalid size!");
-
 enum eGfxUsage {
   USAGE_UNKNOWN,
 };
 
 enum eGfxMemoryPool {
-  POOL_UNKNOWN,
+  MEMORY_POOL_UNKNOWN,
 };
 
 enum eGfxBufferLockMode {
-  LOCK_MODE_UNKNOWN,
+  BUFFER_LOCK_MODE_UNKNOWN,
 };
 
 enum eGfxGPUIndexBufferFormat {
-  INDEX_BUFFER_FORMAT_UNKNOWN,
+  GPU_INDEX_BUFFER_FORMAT_UNKNOWN,
 };
 
 enum eGfxQueryType {
@@ -60,3 +47,16 @@ enum eGfxShaderType {
   SHADER_TYPE_HULL,
   SHADER_TYPE_DOMAIN,
 };
+
+struct GfxBufferDescr {
+  std::uint32_t unk0;
+  std::int32_t unk1;
+  std::uint32_t memoryPoolType;
+  std::uint64_t size;
+};
+static_assert(sizeof GfxBufferDescr == 24, "Invalid size!");
+
+struct GfxQueryDescr {
+  GfxEnum<eGfxQueryType> queryType;
+};
+static_assert(sizeof GfxQueryDescr == 4, "Invalid size!");
