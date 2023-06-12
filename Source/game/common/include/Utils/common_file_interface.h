@@ -7,6 +7,9 @@
 #include <cstdint>
 #include <CAPackFile.h>
 
+class PACK_MEM_FILE_IN;
+class PACK_FILE_IN;
+
 class FILE_IN_INTERFACE {
 	friend PACK_MEM_FILE_IN;
 	friend PACK_FILE_IN;
@@ -51,7 +54,7 @@ public:
 
 class PACK_FILE_IN : FILE_IN_INTERFACE {
 public:
-    ~PACK_FILE_IN() override = 0;
+    ~PACK_FILE_IN() = 0;
     void* open(char const* fileName) override;
     void read(void* file, unsigned int line) override;
     void readln(char* lineData) override;

@@ -1,15 +1,15 @@
+#include <iostream>
 #include <Windows.h>
 
 // Game Globals
-int _g_exit_code;
+int _g_exit_code = 0;
 //PC_CMDLINE_OPTIONS* _pc_cmdline_options;
 
-int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow) {
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine, int nCmdShow) {
   char cVar1;
-  char *cmdLineArgs;
-  char *pcVar3;
-  
-  cmdLineArgs = (char *)GetCommandLineA();
+  LPSTR cmdLineArgs = GetCommandLineA();
+  char* pcVar3;
+
   if (*cmdLineArgs == '\"') {
     cmdLineArgs = cmdLineArgs + 1;
 
