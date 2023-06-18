@@ -3,6 +3,8 @@
  */
 
 #pragma once
+#include "cathode_entity_state.h"
+#include "cathode_guid.h"
 
 /*struct Entity_vtablefuncs {
   void* find_entity<ShortGuid>;
@@ -90,7 +92,13 @@
 };*/
 
 namespace CATHODE {
-  class Entity {
+  struct EntityInitialiserData {
+    // Possibly a parent->child link via guids?
+    ShortGuid parent;
+    ShortGuid child;
+  };
+
+  class Entity : EntityState {
 
   };
 }

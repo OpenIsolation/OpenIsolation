@@ -52,7 +52,15 @@ namespace CATHODE {
   static_assert(sizeof(TriggerInfo) == 40, "Invalid size!");
 
   class EntityManager {
-
+  public:
+    EntityManager();
+    EntityManager* create_instance();
+    void construct_proxy(MemoryPtr<Entity> entity, const EntityProxy& proxy);
+    // CATHODE::MemoryPtr<CATHODE::ProxyInstance> CATHODE::MemoryPool::allocate_item<CATHODE::ProxyInstance, CATHODE::MemoryPtr<CATHODE::Entity>, CATHODE::EntityProxy>(CATHODE::MemoryPtr<CATHODE::Entity> const&, CATHODE::EntityProxy const&)
+    void spawn_template_entity(MemoryPtr<Entity> entity, bool);
+    void despawn_template_entity(MemoryPtr<Entity> entity);
+    void create_instance(MemoryPtr<Entity> entity, EntityInitialiserData initialiserData);
+    void find_template(const ShortGuid& guid) const;
   };
 
   class EntityCallbackForwarding {
