@@ -88,3 +88,9 @@
   void* set_debug_name<char*>;
   void* set_debug_name<String>;
 };*/
+
+namespace CATHODE {
+  class Entity {
+
+  };
+}
