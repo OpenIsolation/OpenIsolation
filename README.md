@@ -1,5 +1,7 @@
 # OpenIsolation
-A project to reverse-engineer Alien: Isolation, provide an SDK and fix long-standing issues with the PC port.
+A project to reverse-engineer _Alien: Isolation_, provide an SDK, and fix some long-standing issues with the PC port.
+
+You **must** legally own a copy of the game (any PC release - e.g. Windows, macOS or Linux will do) in order to use this project, no game assets will be provided by this project.
 
 Goals:
 - [ ] Reverse-engineer the libraries.
@@ -11,13 +13,8 @@ Goals:
 - [ ] Publish all the headers and generate documentation.
 
 ## Project status
-At the moment, all active development is happening in [_Common_](Source/game/common), as this is one of the core libraries used throughout the game.
-
-Some work is underway, to re-create CA's library of SFX and music for the game, using original file names and folder structures, recovered from the
-Windows Store port of the game.
-
-## Want to listen to some music and SFX from the game?
-[Audio Library](https://www.dropbox.com/sh/99jwuuhtxhsiq7t/AAAhX0zONVwFiWgimfBDotXMa?dl=0)
+At the moment, all active development is happening in [_CATHODE_](Source/CATHODE), as this is one of the core libraries used throughout the game.
+Some work on [_Common_](Source/game/common) has been completed, but the project is still generally in the very early stages.
 
 ## Want to read some more background information on this project?
 [Overview](Documentation/AlienIsolation_iOS_Overview.md)
@@ -26,3 +23,11 @@ Windows Store port of the game.
 [Guidelines for reverse-engineers](Documentation/AlienIsolation_General_ReversingGuidelines.md)
 
 [Technical details about the game binaries](Documentation/AlienIsolation_General_TechnicalDetails.md)
+
+---
+
+**This project is not affiliated with (or endorsed by), SEGA and/or Creative Assembly.**
+
+Any checks in the reverse-engineered code that handle copy protection or Steam ownership verification will not be modified or removed.
+
+You **must** legally own a copy of the game in order to use this project.
