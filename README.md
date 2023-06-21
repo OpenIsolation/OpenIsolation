@@ -1,7 +1,9 @@
+![OpenIsolation](Artwork/OpenIsolation_Logo_Banner.png?raw=true "OpenIsolation")
+
 # OpenIsolation
 A project to reverse-engineer _Alien: Isolation_, provide an SDK, and fix some long-standing issues with the PC port.
 
-You **must** legally own a copy of the game (any PC release - e.g. Windows, macOS or Linux will do) in order to use this project, no game assets will be provided by this project.
+⚠️ You **must** legally own a copy of the game (any PC release - e.g. Windows, macOS or Linux will do) in order to use this project, no game assets will be provided by this project.
 
 Goals:
 - [ ] Reverse-engineer the libraries.
