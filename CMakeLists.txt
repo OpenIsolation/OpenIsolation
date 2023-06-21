@@ -18,7 +18,7 @@ add_subdirectory(Source/CATHODE)
 
 if (MSVC)
     add_executable(AI WIN32 Source/game/source/main/main.cpp)
-    target_sources(AI PRIVATE AI.rc)
+    target_sources(AI PRIVATE Source/game/source/AI.rc)
 
     # Match the linker flag used in the original Steam x86 release - allows up to 4GB of RAM to be used by the game.
     set_target_properties(AI PROPERTIES LINK_FLAGS "/LARGEADDRESSAWARE")
