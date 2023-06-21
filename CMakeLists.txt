@@ -15,10 +15,11 @@ add_subdirectory(Source/game/common)
 add_subdirectory(Source/CALibs)
 add_subdirectory(Source/engine)
 add_subdirectory(Source/CATHODE)
-add_executable(AI WIN32 Source/game/source/main/main.cpp)
-target_sources(AI PRIVATE AI.rc)
 
-# Match the linker flag used in the original Steam x86 release - allows up to 4GB of RAM to be used by the game.
 if (MSVC)
+    add_executable(AI WIN32 Source/game/source/main/main.cpp)
+    target_sources(AI PRIVATE AI.rc)
+
+    # Match the linker flag used in the original Steam x86 release - allows up to 4GB of RAM to be used by the game.
     set_target_properties(AI PROPERTIES LINK_FLAGS "/LARGEADDRESSAWARE")
 endif()
