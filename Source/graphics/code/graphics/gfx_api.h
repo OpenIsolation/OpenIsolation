@@ -54,9 +54,9 @@ struct GfxBufferDescr {
   std::uint32_t memoryPoolType;
   std::uint64_t size;
 };
-static_assert(sizeof GfxBufferDescr == 24, "Invalid size!");
+static_assert(sizeof(GfxBufferDescr) == 24, "Invalid size!");
 
 struct GfxQueryDescr {
   GfxEnum<eGfxQueryType> queryType;
 };
-static_assert(sizeof GfxQueryDescr == 4, "Invalid size!");
+static_assert(sizeof(GfxQueryDescr) == 4, "Invalid size!");
