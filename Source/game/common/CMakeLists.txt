@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24)
-project(AlienIsolation)
+project(OpenIsolation)
 
 include_directories(include)
 include_directories(../../CALibs/inc)

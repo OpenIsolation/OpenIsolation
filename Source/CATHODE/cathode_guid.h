@@ -21,9 +21,9 @@ namespace CATHODE {
     std::uint32_t guid;
   };
 
-  static ShortGuid invalid_guid;
+  /*static ShortGuid invalid_guid;
   static ShortGuid invalid_entity_guid;
   static ShortGuid invalid_class_guid;
   static ShortGuid invalid_element_guid;
-  static ShortGuid invalid_resource_guid;
+  static ShortGuid invalid_resource_guid;*/
 }

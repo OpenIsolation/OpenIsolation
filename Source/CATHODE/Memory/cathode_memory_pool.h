@@ -11,6 +11,10 @@ namespace CATHODE {
     MemoryPool(const char* poolName);
     ~MemoryPool();
     void pr_allocate(unsigned int size);
+  private:
+    void** vtable0;
+    long* vtable1;
+    const char* name;
   };
 
   class MemoryTracker {
@@ -49,5 +53,11 @@ namespace CATHODE {
     ~MemoryPtr();
     T& operator=(const T& newValue);
     T* ptr;
+  };
+
+  template<typename T>
+  class ArrayPtr {
+  public:
+
   };
 }
