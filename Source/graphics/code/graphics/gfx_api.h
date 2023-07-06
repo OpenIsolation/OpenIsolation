@@ -19,55 +19,125 @@ struct GfxEnum {
   T value;
 };
 
-enum eGfxFeatureLevel {
-  FEATURE_LEVEL_UNKNOWN,
-  FEATURE_LEVEL_D3D10,
-  FEATURE_LEVEL_D3D11,
-  FEATURE_LEVEL_UNSUPPORTED,
+enum class eGfxBufferLockMode {
+  UNKNOWN,
 };
 
-enum eGfxUsage {
-  USAGE_UNKNOWN,
+enum class eGfxClear {
+
 };
 
-enum eGfxMemoryPool {
-  MEMORY_POOL_UNKNOWN,
+/// <summary>
+/// Defines supported device feature levels.
+/// Use this in code or render passes that require specific feature levels.
+/// For instance, the game code will detect lack of D3D11 support and will dynamically disable the Depth of Field pass.
+/// </summary>
+enum class eGfxFeatureLevel {
+  UNKNOWN,
+  D3D10,
+  D3D11,
+  UNSUPPORTED,
 };
 
-enum eGfxBufferLockMode {
-  BUFFER_LOCK_MODE_UNKNOWN,
+enum class eGfxGPUIndexBufferFormat {
+  UNKNOWN,
 };
 
-enum eGfxGPUIndexBufferFormat {
-  GPU_INDEX_BUFFER_FORMAT_UNKNOWN,
+enum class eGfxMapFlags {
+  UNKNOWN,
 };
 
-enum eGfxQueryType {
-  QUERY_TYPE_EVENT,
-  QUERY_TYPE_OCCLUSION,
-  QUERY_TYPE_TIMESTAMP_DISJOINT = 3,
-  QUERY_TYPE_UNKNOWN_VALUE = GRAPHICS_UNKNOWN_VALUE,
+enum class eGfxMemoryPool {
+  UNKNOWN,
 };
 
-enum eGfxRenderStateOptionsCompare {
-  RENDER_STATE_OPTIONS_COMPARE_UNKNOWN_VALUE = GRAPHICS_UNKNOWN_VALUE,
+enum class eGfxMultisample {
+  UNKNOWN,
 };
 
-enum eGfxSamplerStateOptionsAddress {
-  SAMPLER_STATE_OPTIONS_ADDRESS_UNKNOWN_VALUE = GRAPHICS_UNKNOWN_VALUE,
+enum class eGfxPrimType {
+  UNKNOWN,
 };
 
-enum eGfxSamplerStateOptionsMaxAnisotropy {
-  SAMPLER_STATE_OPTIONS_MAX_ANISOTROPY_UNKNOWN_VALUE = GRAPHICS_UNKNOWN_VALUE,
+enum class eGfxQueryType {
+  EVENT,
+  OCCLUSION,
+  TIMESTAMP,
+  TIMESTAMP_DISJOINT,
+  UNKNOWN = GRAPHICS_UNKNOWN_VALUE,
 };
 
-enum eGfxShaderType {
-  SHADER_TYPE_COMPUTE,
-  SHADER_TYPE_PIXEL,
-  SHADER_TYPE_VERTEX,
-  SHADER_TYPE_GEOMETRY,
-  SHADER_TYPE_HULL,
-  SHADER_TYPE_DOMAIN,
+enum class eGfxRenderStateOptionsBlend {
+  UNKNOWN,
+};
+
+enum class eGfxRenderStateOptionsBlendOperation {
+  UNKNOWN,
+};
+
+enum class eGfxRenderStateOptionsColorWrite {
+  UNKNOWN,
+};
+
+enum class eGfxRenderStateOptionsCompare {
+  UNKNOWN = GRAPHICS_UNKNOWN_VALUE,
+};
+
+enum class eGfxRenderStateOptionsCullMode {
+  UNKNOWN,
+};
+
+enum class eGfxRenderStateOptionsFillMode {
+  UNKNOWN,
+};
+
+enum class eGfxRenderStateOptionsStencil {
+  UNKNOWN,
+};
+
+enum class eGfxResourceViewType {
+  UNKNOWN,
+};
+
+enum class eGfxSamplerStateOptionsAddress {
+  UNKNOWN = GRAPHICS_UNKNOWN_VALUE,
+};
+
+enum class eGfxSamplerStateOptionsFilter {
+  UNKNOWN = GRAPHICS_UNKNOWN_VALUE,
+};
+
+enum class eGfxSamplerStateOptionsMaxAnisotropy {
+  UNKNOWN = GRAPHICS_UNKNOWN_VALUE,
+};
+
+enum class eGfxShaderType {
+  COMPUTE,
+  PIXEL,
+  VERTEX,
+  GEOMETRY,
+  HULL,
+  DOMAIN,
+};
+
+enum class eGfxSurfaceFormat {
+  UNKNOWN,
+};
+
+enum class eGfxTextureFormat {
+  UNKNOWN,
+};
+
+enum class eGfxUsage {
+  UNKNOWN,
+};
+
+enum class eGfxVertexFormatType {
+  UNKNOWN,
+};
+
+enum class eGfxVertexFormatUsage {
+  UNKNOWN,
 };
 
 struct GfxBufferDescr {
@@ -87,7 +157,7 @@ struct GfxSamplerStateDescr {
   GfxEnum<eGfxSamplerStateOptionsAddress> address1;
   GfxEnum<eGfxSamplerStateOptionsAddress> address2;
   GfxEnum<eGfxSamplerStateOptionsAddress> address3;
-  GfxEnum<eGfxRenderStateOptionsCompare> optionsCompare;
+  GfxEnum<eGfxRenderStateOptionsCompare> compare;
   GfxEnum<eGfxSamplerStateOptionsMaxAnisotropy> maxAnisotropy;
   // Pretty sure there's more to this struct, but this is all I've worked out so far.
 };
