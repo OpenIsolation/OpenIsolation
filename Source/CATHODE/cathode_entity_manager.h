@@ -7,7 +7,9 @@
 #include "cathode_guid.h"
 #include "cathode_entity.h"
 
+#ifdef OPENISOLATION_WINDOWS
 #include <Windows.h>
+#endif
 
 /// <summary>
 /// Case-insensitive strstr.
@@ -26,13 +28,21 @@ namespace CATHODE {
   public:
     EntityManagerAccess();
     ~EntityManagerAccess();
+  #ifdef OPENISOLATION_WINDOWS
     static CRITICAL_SECTION mutex;
+  #endif
   };
 
   class EntityTrigger {
   public:
     EntityTrigger(const MemoryPtr<Entity>& entity, const ShortGuid& guid, double duration);
+  private:
+    ShortGuid guid;
+    float unk0;
+    Entity* entity;
   };
+  // Pointers on 32-bit architectures are 4 bytes long, on 64-bit (and ARM) they are 8 bytes long.
+  static_assert((sizeof(EntityTrigger) - sizeof(Entity*)) == 8, "Invalid size for EntityTrigger!");
 
   class TriggerInfo {
   public:
@@ -75,6 +85,6 @@ namespace CATHODE {
     void report_trigger_usage();
   };
 
-  void breakpoint_less_than(const EntityBreakpoint& point1, const EntityBreakpoint& point2);
+  //void breakpoint_less_than(const EntityBreakpoint& point1, const EntityBreakpoint& point2);
   void trigger_timing_less_than(const MemoryRefPtr<TriggerInfo>& info1, const MemoryRefPtr<TriggerInfo>& info2);
 }

@@ -31,7 +31,7 @@ namespace CATHODE {
     MemoryPool* owner; // referenced by MemoryAllocation::pool;
     MemoryTracker* tracker;
   };
-  static_assert(sizeof(MemoryTracker) == 48, "Invalid size for MemoryTracker!");
+  static_assert((sizeof(MemoryTracker) - sizeof(void*)) == 48, "Invalid size for MemoryTracker!");
 
   template<typename T>
   class MemoryAllocation {

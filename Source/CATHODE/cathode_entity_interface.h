@@ -10,20 +10,11 @@
 
 namespace CATHODE {
   struct EntityProxy {
-
-    long unk1;
+    std::int32_t unk1;
     EntityInitialiserData initialiserData;
   };
-  static_assert(sizeof(EntityProxy) == 12, "Invalid size for EntityProxy!");
-
-  struct EntityTrigger {
-    ShortGuid guid;
-    float unk0;
-    Entity* entity;
-  };
-  // Pointers on 32-bit architectures are 4 bytes long, on 64-bit (and ARM) they are 8 bytes long.
-  static_assert((sizeof(EntityTrigger) - sizeof(Entity*)) == 8, "Invalid size for EntityTrigger!");
-
+  static_assert(sizeof(EntityProxy) == 12, "Invalid size for EntityProxy!"); 
+  
   class EntityInterface {
   public:
     EntityInterface();
@@ -42,7 +33,6 @@ namespace CATHODE {
   class ProxyInstance {
     ProxyInstance(const MemoryPtr<Entity>& entity, const EntityProxy& proxy);
     void on_initialise(const MemoryPtr<Entity>& entity, const MemoryRefPtr<TriggerInfo>& triggerInfo);
-
   };
 }
 
