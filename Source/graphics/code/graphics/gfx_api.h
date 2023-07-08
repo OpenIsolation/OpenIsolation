@@ -24,7 +24,7 @@ enum class eGfxBufferLockMode {
 };
 
 enum class eGfxClear {
-
+  UNKNOWN,
 };
 
 /// <summary>

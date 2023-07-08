@@ -60,3 +60,6 @@ X64
 *.suo
 *.aps
 ipch
+
+# Build directory
+Build

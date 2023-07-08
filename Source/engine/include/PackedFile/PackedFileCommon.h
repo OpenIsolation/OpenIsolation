@@ -4,53 +4,99 @@
 
 #include <cstdint>
 
-/// <summary>
-/// Class Inheritance Summary
-/// 
-/// FILE_PACKER
-///   NOTIFICATION_HANDLER
-///   FILE_INTERFACE_COMMON
-///     FILE_INTERFACE_READABLE
-///     FILE_INTERFACE_STREAMABLE
-///   PACKED_FILE_COMMON
-///     PACKED_FILE_READABLE
-/// </summary>
+// Class Inheritance Summary
+// 
+// FILE_PACKER
+//   NOTIFICATION_HANDLER
+//   FILE_INTERFACE_COMMON
+//     FILE_INTERFACE_READABLE
+//     FILE_INTERFACE_STREAMABLE
+//   PACKED_FILE_COMMON
+//     PACKED_FILE_READABLE
 
 namespace FILE_PACKER {
+  // Forward-declarations.
+  class PACKED_FILE_COMMON;
+
+  struct CHUNK_INFO {
+
+  };
+
+  struct ENTRY {
+
+  };
+
   class NOTIFICATION_HANDLER {
   public:
-    NOTIFICATION_HANDLER* get_default_handler();
-    const void log_msg(MSG_TYPE type, char const* msg, ...);
-
-    typedef enum MSG_TYPE {
+    enum class MSG_TYPE {
       UNKNOWN = 0,
-    } MSG_TYPE;
+    };
+
+    static NOTIFICATION_HANDLER* get_default_handler();
+    void log_msg(MSG_TYPE type, char const* msg, ...) const;
+  private:
+    inline static NOTIFICATION_HANDLER* instance;
   };
 
   class FILE_INTERFACE_COMMON {
   public:
-    const NOTIFICATION_HANDLER* get_notification_handler();
-    // The engine supports a maximum of 15 interface slots.
-    void unregister_interface(std::uint8_t interfaceSlot);
-    void add_request(OPERATION operation, unsigned long, unsigned long, unsigned int, FILE_PACKER::ENTRY* entry, void*);
-
-    typedef enum OPERATION {
-      // I've only seen 1 being passed in to FILE_INTERFACE_COMMON::add_request so far.
+    enum class OPERATION {
+      /// I've only seen 1 being passed in to FILE_INTERFACE_COMMON::add_request so far, this might be a simple
+      /// read operation - write support might be stripped out in release builds?
       DEFAULT = 1,
-    } OPERATION;
+    };
 
     class FILE_REQUEST {
-      typedef enum REQUEST_TYPE {
+      enum class REQUEST_TYPE {
         UNKNOWN = 0,
         OPEN = 1,
         CLOSE = 2,
         SEEK = 3,
         READ = 4,
         WRITE = 5
-      } REQUEST_TYPE;
-
-
+      };
     };
+
+    NOTIFICATION_HANDLER* get_notification_handler() const;
+    /// The engine supports a maximum of 15 interface slots.
+    void unregister_interface(std::uint32_t interfaceSlot);
+    void add_request(OPERATION operation, std::uint64_t, std::uint64_t, std::uint32_t, ENTRY* entry, void*);
+    void get_next_request();
+    void notify_request_complete(std::uint64_t);
+    void add_string_to_heap(const char* string);
+    FILE_INTERFACE_COMMON(PACKED_FILE_COMMON* packedFileCommon);
+    ~FILE_INTERFACE_COMMON();
+    void tell();
+    void flush();
+  };
+
+  class PACKED_FILE_COMMON {
+  public:
+    using PackedFileEntryID = std::uint32_t;
+
+    /// <summary>
+    /// Types of endianness supported by the file packer.
+    /// </summary>
+    enum class ENDIAN {
+      LITTLE, // TODO! Assuming LITTLE is first in this enum, properly check this against the iOS port.
+      BIG,
+    };
+
+    void notify_request_complete(FILE_INTERFACE_COMMON::FILE_REQUEST* request, bool);
+    void open(const char* fileName, std::uint32_t, std::uint32_t, std::uint32_t, std::uint32_t, ENDIAN endianness);
+    void read_header(FILE_INTERFACE_COMMON* fileInterfaceCommon);
+    void alloc_fat(std::uint32_t, bool);
+    void read_entries(ENTRY* entry, std::uint32_t, FILE_INTERFACE_COMMON* fileInterfaceCommon);
+    // CA::HashTable<PackedFileEntryID, ENTRY*, CA::DefaultHasher<PackedFileEntryID>, CA::HashTableDefaultEquals<PackedFileEntryID>, CA::DefaultAllocator>::set(PackedFileEntryID const&, ENTRY* const&);
+    void close();
+    void discard_file_interface();
+    void delete_file(std::uint32_t id);
+    void get_file(std::uint32_t id, bool);
+    void read_data(ENTRY* entry, std::uint8_t*, void*);
+    void close_file(std::uint32_t id);
+    void prepare_chunk_load(CHUNK_INFO& chunkInfo);
+    void perform_chunk_load(CHUNK_INFO& chunkInfo);
+    void release_chunk_load(CHUNK_INFO& chunkInfo);
   };
 }
 
