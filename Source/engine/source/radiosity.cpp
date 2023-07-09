@@ -1,5 +1,7 @@
-/**
- * The OpenIsolation Project
- */
+//
+// The OpenIsolation Project
+//
+
+#include "radiosity.h"
 
 

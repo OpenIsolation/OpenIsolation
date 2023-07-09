@@ -1,9 +1,9 @@
-/**
- * The OpenIsolation Project
- */
+//
+// The OpenIsolation Project
+//
 
-#include <pc_radiosity_runtime.h>
-#include <PostProcessing.h>
+#include "pc/pc_radiosity_runtime.h"
+#include "PostProcessing.h"
 
 class RADIOSITY : public RADIOSITY_RUNTIME_PC {
 public:
