@@ -29,11 +29,14 @@ namespace FILE_PACKER {
   class NOTIFICATION_HANDLER {
   public:
     enum class MSG_TYPE {
-      UNKNOWN = 0,
+      ERROR = 4,
     };
 
+    ~NOTIFICATION_HANDLER(); // Optimised away
     static NOTIFICATION_HANDLER* get_default_handler();
     void log_msg(MSG_TYPE type, char const* msg, ...) const;
+    void display_msg(MSG_TYPE type, char const* msg) const; // Stripped
+    void get_error_state() const; // Stripped
   private:
     inline static NOTIFICATION_HANDLER* instance;
   };
@@ -99,6 +102,7 @@ namespace FILE_PACKER {
     void prepare_chunk_load(CHUNK_INFO& chunkInfo);
     void perform_chunk_load(CHUNK_INFO& chunkInfo);
     void release_chunk_load(CHUNK_INFO& chunkInfo);
+    void log_error(const char* error) const; // Stripped
   };
 }
 
