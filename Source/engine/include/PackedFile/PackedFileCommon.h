@@ -15,7 +15,7 @@
 //     PACKED_FILE_READABLE
 
 namespace FILE_PACKER {
-  // Forward-declarations.
+  // Forward declarations.
   class PACKED_FILE_COMMON;
 
   struct CHUNK_INFO {
@@ -41,13 +41,12 @@ namespace FILE_PACKER {
   class FILE_INTERFACE_COMMON {
   public:
     enum class OPERATION {
-      /// I've only seen 1 being passed in to FILE_INTERFACE_COMMON::add_request so far, this might be a simple
-      /// read operation - write support might be stripped out in release builds?
-      DEFAULT = 1,
+      /// Not sure if this is read or stream, this seems to be the only operation.
+      READ = 1,
     };
 
-    class FILE_REQUEST {
-      enum class REQUEST_TYPE {
+    struct FILE_REQUEST {
+      enum struct REQUEST_TYPE {
         UNKNOWN = 0,
         OPEN = 1,
         CLOSE = 2,
@@ -85,6 +84,9 @@ namespace FILE_PACKER {
     void notify_request_complete(FILE_INTERFACE_COMMON::FILE_REQUEST* request, bool);
     void open(const char* fileName, std::uint32_t, std::uint32_t, std::uint32_t, std::uint32_t, ENDIAN endianness);
     void read_header(FILE_INTERFACE_COMMON* fileInterfaceCommon);
+    /// <summary>
+    /// Allocates the File Allocation Table (FAT)?
+    /// </summary>
     void alloc_fat(std::uint32_t, bool);
     void read_entries(ENTRY* entry, std::uint32_t, FILE_INTERFACE_COMMON* fileInterfaceCommon);
     // CA::HashTable<PackedFileEntryID, ENTRY*, CA::DefaultHasher<PackedFileEntryID>, CA::HashTableDefaultEquals<PackedFileEntryID>, CA::DefaultAllocator>::set(PackedFileEntryID const&, ENTRY* const&);
