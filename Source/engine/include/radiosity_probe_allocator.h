@@ -1,11 +1,11 @@
-/**
- * The OpenIsolation Project
- */
+//
+// The OpenIsolation Project
+//
 
 #include <cstdint>
 
 namespace RadiosityProbeAllocator {
-  // Appears to store a bit-shifted, masked and XORed value inside the first parameter.
+  /// Appears to store a bit-shifted, masked and XORed value inside the first parameter.
   class ProbeAllocationIterator {
   public:
     /// <summary>

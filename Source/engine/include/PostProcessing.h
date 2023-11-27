@@ -1,9 +1,11 @@
-/**
- * The OpenIsolation Project
- */
+//
+// The OpenIsolation Project
+//
+
+#pragma once
 
 #include <cstdint>
-#include <StereoManager.h>
+#include "Stereo/StereoManager.h"
 
 enum class ePredefinedSamplerState {
   DISABLED,

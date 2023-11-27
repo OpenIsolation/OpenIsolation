@@ -1,9 +1,9 @@
-/**
- * The OpenIsolation Project
- */
+//
+// The OpenIsolation Project
+//
 
-#include <radiosity_runtime.h>
-#include <radiosity_probe_allocator.h>
+#include "radiosity_runtime.h"
+#include "radiosity_probe_allocator.h"
 
 class RADIOSITY_RUNTIME_PC : public RADIOSITY_RUNTIME {
   void create();

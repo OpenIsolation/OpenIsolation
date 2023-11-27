@@ -3,5 +3,5 @@ project(OpenIsolation)
 
 include_directories(inc)
 
-add_library(CALibs STATIC src/CAPackFile.cpp src/CASHA.cpp)
+add_library(CALibs STATIC src/CAPackFile.cpp src/CASHA.cpp src/CTMemoryIBKHeaps.cpp)
 target_compile_features(CALibs PUBLIC cxx_std_11)

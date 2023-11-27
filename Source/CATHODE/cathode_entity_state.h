@@ -96,7 +96,7 @@ namespace CATHODE {
     bool lock(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
     // This probably returns a bool, but I haven't reversed the part of the Entity vtable that it gets the return value from yet.
     std::uint32_t open(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
-    close(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
+    /*close(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
       light_switch_on(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
       show(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
       spawn(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
@@ -105,7 +105,7 @@ namespace CATHODE {
       ghosted(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
       frozen(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
       invisible(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-      suspended(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+      suspended(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);*/
       /// <summary>
       /// Adds (or removes) a state flag from the provided entity.
       /// </summary>
@@ -114,7 +114,7 @@ namespace CATHODE {
       /// <param name="state">The state flag in question.</param>
       /// <param name="shouldAddState">If true, it adds the state to the entity's current state flag, otherwise it removes the state.</param>
       void state_change(MemoryPtr<Entity>& entity, const MemoryRefPtr<TriggerInfo>& triggerInfo, EntityStateFlag state, bool shouldAddState);
-      revert(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+      /*revert(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
       shutdown(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
         initialise(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
         capture(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
@@ -147,7 +147,7 @@ namespace CATHODE {
         unload(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
         finished_loading(const MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
         finished_opening(const MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        finished_closing(const MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+        finished_closing(const MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);*/
       private:
         EntityStateID state;
   };

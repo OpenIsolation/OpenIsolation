@@ -9,7 +9,7 @@ GfxHandle<GfxBufferDescr> UtilGraphics::CreateVertexBuffer(std::uint8_t size, Gf
   GfxBufferDescr bufferDescr;
   
   bufferDescr.memoryPoolType = 3;
-  if ((usage.value | 8) != 0x28) {
+  if (((int)usage.value | 8) != 0x28) {
     bufferDescr.memoryPoolType = 2;
   }
   /*bufferDescr._0_8_ = 1;
