@@ -1,6 +1,6 @@
-/**
- * The OpenIsolation Project
- */
+//
+// The OpenIsolation Project
+//
 
 #include <AK/Tools/Common/AkAssert.h>
 #include <AK/Tools/Common/AkBankReadHelpers.h>

@@ -1,9 +1,8 @@
-/**
- * The OpenIsolation Project
- */
+//
+// The OpenIsolation Project
+//
 
 #pragma once
-#include "cathode_entity_state.h"
 #include "cathode_guid.h"
 
 /*struct Entity_vtablefuncs {
@@ -101,7 +100,7 @@ namespace CATHODE {
   // The RTTI typeinfo for this virtual class indicates that it inherits from 1 base class (EntityState) and that this inheritance is public.
   // This class provides some basic implementation details for certain methods, but most are just empty and return invalid placeholder values.
   // It's expected that some of these virtual methods will be overridden by child classes to provide more defined / specialised implementations.
-  class Entity : public EntityState {
+  class Entity {
 public:
 
   };

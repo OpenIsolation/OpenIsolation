@@ -1,6 +1,6 @@
-/**
- * The OpenIsolation Project
- */
+//
+// The OpenIsolation Project
+//
 
 #pragma once
 #include "Memory/cathode_memory_pool.h"
@@ -18,6 +18,8 @@ Map of state flags to states (for the sake of brevity, these are represented in 
 0x4 - start (unset if stop is called)
 0x8 - pause (unset if resume is called)
 0x10 - attach (unset if detach is called)
+0x20 - unknown
+0x40 - unknown
 0x80 - enable (unset if disable is called)
 0x100 - simulate (unset if keyframe is called)
 0x200 - lock (unset if unlock is called)
@@ -27,6 +29,9 @@ Map of state flags to states (for the sake of brevity, these are represented in 
 0x2000 - floating (unset if sinking is called)
 0x4000 - light_switch_on (unset if light_switch_off is called)
 0x8000 - install_proxy (unset if uninstall_proxy is called)?
+0x10000 - unknown
+0x20000 - unknown
+0x40000 - unknown
 0x80000 - suspended (unset if allowed is called)
 0x100000 - ghosted (unset if solid is called)
 0x200000 - invisible (unset if visible is called)
@@ -44,6 +49,8 @@ namespace CATHODE {
       START = 0x4,
       PAUSE = 0x8,
       ATTACH = 0x10,
+      UNKNOWN_1 = 0x20,
+      UNKNOWN_2 = 0x40,
       ENABLE = 0x80,
       SIMULATE = 0x100,
       LOCK = 0x200,
@@ -53,6 +60,9 @@ namespace CATHODE {
       FLOATING = 0x2000,
       LIGHT_SWITCH_ON = 0x4000,
       INSTALL_PROXY = 0x8000,
+      UNKNOWN_3 = 0x10000,
+      UNKNOWN_4 = 0x20000,
+      UNKNOWN_5 = 0x40000,
       SUSPENDED = 0x80000,
       GHOSTED = 0x100000,
       INVISIBLE = 0x200000,
@@ -94,61 +104,62 @@ namespace CATHODE {
     bool pause(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
     bool attach(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
     bool lock(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
-    // This probably returns a bool, but I haven't reversed the part of the Entity vtable that it gets the return value from yet.
-    std::uint32_t open(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
-    /*close(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-      light_switch_on(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-      show(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-      spawn(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-      suspend(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-      start_updating(const MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&, bool)
-      ghosted(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-      frozen(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-      invisible(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-      suspended(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);*/
-      /// <summary>
-      /// Adds (or removes) a state flag from the provided entity.
-      /// </summary>
-      /// <param name="entity">Entity whose state is to be altered.</param>
-      /// <param name="triggerInfo">Unknown.</param>
-      /// <param name="state">The state flag in question.</param>
-      /// <param name="shouldAddState">If true, it adds the state to the entity's current state flag, otherwise it removes the state.</param>
-      void state_change(MemoryPtr<Entity>& entity, const MemoryRefPtr<TriggerInfo>& triggerInfo, EntityStateFlag state, bool shouldAddState);
-      /*revert(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
-      shutdown(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        initialise(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        capture(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        restore(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        post_restore(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        pre_restore(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        update_restore(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        finished_restore(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        trigger(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        reposition(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        validate(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        begin_processing(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        end_processing(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        finished_processing(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        zone_deactivate(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        zone_activate(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        install_proxy(MemoryPtr<Entity>&, const MemoryPtr<Entity>&)
-        uninstall_proxy(MemoryPtr<Entity>&)
-        process(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        update(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        opening(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        closing(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        live_edit(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        refresh(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        callback(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        apply_mastering(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&, EntityStateUnion, EntityStateUnion)
-        load(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        loaded(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        loading(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        unload(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        finished_loading(const MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        finished_opening(const MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&)
-        finished_closing(const MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);*/
-      private:
-        EntityStateID state;
+    bool open(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool close(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool light_switch_on(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool show(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool spawn(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool suspend(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool start_updating(const MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&, bool);
+    bool ghosted(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool frozen(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool invisible(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool suspended(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    /// <summary>
+    /// Adds (or removes) a state flag from the provided entity.
+    /// </summary>
+    /// <param name="entity">Entity whose state is to be altered.</param>
+    /// <param name="triggerInfo">Unknown.</param>
+    /// <param name="state">The state flag in question.</param>
+    /// <param name="shouldAddState">If true, it adds the state to the entity's current state flag, otherwise it removes the state.</param>
+    void state_change(MemoryPtr<Entity>& entity, const MemoryRefPtr<TriggerInfo>& triggerInfo, EntityStateFlag state, bool shouldAddState);
+    bool revert(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool shutdown(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool initialise(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool capture(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool restore(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool post_restore(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool pre_restore(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool update_restore(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool finished_restore(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool trigger(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool reposition(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool validate(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool begin_processing(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool end_processing(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool finished_processing(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool zone_deactivate(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool zone_activate(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool install_proxy(MemoryPtr<Entity>&, const MemoryPtr<Entity>&);
+    // Unsure about return type.
+    void uninstall_proxy(MemoryPtr<Entity>&);
+    bool process(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool update(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool opening(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool closing(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool live_edit(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool refresh(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool callback(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    // Unsure about return type.
+    void apply_mastering(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&, EntityStateUnion, EntityStateUnion);
+    bool load(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool loaded(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool loading(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool unload(MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool finished_loading(const MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool finished_opening(const MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+    bool finished_closing(const MemoryPtr<Entity>&, const MemoryRefPtr<TriggerInfo>&);
+  private:
+    EntityStateID state;
   };
 }

@@ -1,6 +1,6 @@
-/**
- * The OpenIsolation Project
- */
+//
+// The OpenIsolation Project
+//
 
 #include "unity_sundries.h"
 

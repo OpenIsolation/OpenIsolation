@@ -1,6 +1,6 @@
-/**
- * The OpenIsolation Project
- */
+//
+// The OpenIsolation Project
+//
 
 #ifndef _WWISE_ENVELOPE_DSP_PARAMS_H_
 #define _WWISE_ENVELOPE_DSP_PARAMS_H_

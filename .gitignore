@@ -48,6 +48,7 @@ out
 *.dir
 Debug
 X64
+.cmake
 
 # IntelliJ files
 .idea

@@ -1,6 +1,6 @@
-/**
- * The OpenIsolation Project
- */
+//
+// The OpenIsolation Project
+//
 
 #pragma once
 #include "Memory/cathode_memory_pool.h"
@@ -9,12 +9,14 @@
 #include "cathode_entity_manager.h"
 
 namespace CATHODE {
-  struct EntityProxy {
-    std::int32_t unk1;
-    EntityInitialiserData initialiserData;
+  struct DEBUG_BUFFER {
+
   };
-  static_assert(sizeof(EntityProxy) == 12, "Invalid size for EntityProxy!"); 
-  
+
+  class VariableInterface {
+
+  };
+
   class EntityInterface {
   public:
     EntityInterface();
@@ -27,7 +29,6 @@ namespace CATHODE {
     void cache_variable(const ShortGuid& guid, const VariableInterface* variable) const;
     void cache_trigger(const ShortGuid& guid, const EntityTrigger& trigger) const;
     void cache_size() const;
-
   };
 
   class ProxyInstance {

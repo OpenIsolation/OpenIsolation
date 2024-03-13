@@ -1,6 +1,6 @@
-/**
- * The OpenIsolation Project
- */
+//
+// The OpenIsolation Project
+//
 
 #pragma once
 
@@ -11,8 +11,8 @@ class PACK_MEM_FILE_IN;
 class PACK_FILE_IN;
 
 class FILE_IN_INTERFACE {
-	friend PACK_MEM_FILE_IN;
-	friend PACK_FILE_IN;
+    friend PACK_MEM_FILE_IN;
+    friend PACK_FILE_IN;
 public:
     virtual ~FILE_IN_INTERFACE() = 0;
     virtual void* open(char const* fileName) = 0;
@@ -63,6 +63,6 @@ public:
     void close() override;
 private:
     PackFileIn* packFileIn;
-	//std::uint8_t position;
-	//std::uint8_t fileSize;
+    //std::uint8_t position;
+    //std::uint8_t fileSize;
 };

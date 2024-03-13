@@ -1,9 +1,10 @@
-/**
- * The OpenIsolation Project
- */
+//
+// The OpenIsolation Project
+//
 
 #pragma once
 #include "Memory/cathode_memory_pool.h"
+//#include "cathode_entity_interface.h"
 #include "cathode_guid.h"
 #include "cathode_entity.h"
 
@@ -20,6 +21,12 @@
 void stristr(const char* haystack, const char* needle);
 
 namespace CATHODE {
+  struct EntityProxy {
+    std::int32_t unk1;
+    EntityInitialiserData initialiserData;
+  };
+  static_assert(sizeof(EntityProxy) == 12); 
+
   /// <summary>
   /// Grants exclusive access to the EntityManager, by temporarily blocking access from other threads using a mutex.
   /// Upon destruction of an instance of this class, access is restored.

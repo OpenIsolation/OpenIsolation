@@ -9,10 +9,14 @@ namespace RadiosityProbeAllocator {
   class ProbeAllocationIterator {
   public:
     /// <summary>
-    /// Finds the next radiosity probe to be allocated.
+    ///   Finds the next radiosity probe to be allocated.
     /// </summary>
-    /// <param name="outNextProbe">Pointer to where the next probe's ID will be saved.</param>
-    /// <returns>Whether or not the request succeeded or failed.</returns>
+    /// <param name="outNextProbe">
+    ///   Pointer to where the next probe's ID will be saved.
+    /// </param>
+    /// <returns>
+    ///   Whether or not the request succeeded or failed.
+    /// </returns>
     bool get_next(std::uint32_t* outNextProbe);
   };
 
