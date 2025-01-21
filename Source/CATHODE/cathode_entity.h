@@ -91,8 +91,10 @@
 };*/
 
 namespace CATHODE {
+  /// <summary>
+  ///   Stores the ShortGuid of the parent and child nodes in the flowgraph for an entity.
+  /// </summary>
   struct EntityInitialiserData {
-    // Possibly a parent->child link via guids?
     ShortGuid parent;
     ShortGuid child;
   };

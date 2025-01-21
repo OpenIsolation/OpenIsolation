@@ -12,12 +12,17 @@ namespace CATHODE {
     const char* as_string() const;
   };
 
+  /// <summary>
+  ///   Short version of a LongGuid, calculated by taking the textual name of an entity or node, and
+  ///   performing a LongGuid SHA1 hash on it (produces an 8 byte hash), then only taking the first 4 bytes, 
+  ///   and swapping the 4 bytes, then SHA1 hashing that again.
+  /// </summary>
   class ShortGuid {
   public:
     ShortGuid(const char* text);
     const char* as_string() const;
     ShortGuid* combine(const ShortGuid& guid);
-    // I think ShortGuid just contains a single "guid" uint, I'm treating it as a regular uint as this is what sha1_portable.cc does.
+    // ShortGuid is treated as a uint in some of the engine-side code.
     std::uint32_t guid;
   };
 

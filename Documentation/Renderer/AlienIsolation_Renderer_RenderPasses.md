@@ -1,7 +1,7 @@
 # Alien: Isolation - Renderer - Render Passes
 
 ## Overview
-This file details each of the passes in _Alien: Isolation_'s renderer, some technical notes about each pass will be included (if relevant).
+This file details each of the passes in _Alien: Isolation_'s renderer and some technical notes about each pass will be included (if relevant).
 
 ## Render Passes
 | Name                                 | Notes                                                            |
@@ -26,7 +26,7 @@ This file details each of the passes in _Alien: Isolation_'s renderer, some tech
 | ``PostAlpha``                        | Unknown                                                          |
 | ``Visor``                            | Unknown                                                          |
 | ``LightDecal``                       | Unknown                                                          |
-| ``Decal``                            | Decals are not rendered in planar reflections                    |
+| ``Decal``                            | Decals are not rendered in planar reflections.                   |
 | ``SkinOcclusion``                    | Unknown                                                          |
 | ``DecalAffectingSpecularNormal``     | Unknown                                                          |
 | ``SolidDecal``                       | Unknown                                                          |
